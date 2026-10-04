@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Slider</title>
+        <style>
+            #slider {
+                position: relative;
+                width: 300px;
+                height: 400px;
+                margin: 0 auto;
+            }
+
+            #slider img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+
+            #controls {
+                margin-top: 20px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                color: #04a28d;
+            }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #38011f;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>My Slider</h1>
+        <div id="slider">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEFlx5Tsuaj2xZ1P2KTZndxqvpbm9tuyyHl7_oH64LeA&s=10" alt="Apple" height="400" width="300">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCNjwx0hOV3aM-QcRkQhH4RsS1yQf_11KOC4VrbeTaUw&s=10" alt="Ps6" height="400" width="300">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2DAlMifCvxuc1U6bVwChFJB8bCK7DDZVv4PPlHrHPrQ&s=10" alt="icecream" height="400" width="300">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQci0sWIauKjngb8B_dyLFAstgZnSSRVH7PxaZwVm2qeA&s=10" alt="car" height="400" width="300">
+        </div>
+        <div id="controls">
+            <button onclick="changeImage(-1)"><</button>
+            <button onclick="changeImage(1)">></button>
+        </div>
+        <script>
+            let currentIndex = 0;
+            const images = document.querySelectorAll('#slider img');
+
+            function changeImage(direction) {
+                images[currentIndex].style.display = 'none';
+                currentIndex += direction;
+
+                if (currentIndex < 0) {
+                    currentIndex = images.length - 1;
+                } else if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+
+                images[currentIndex].style.display = 'block';
+            }
+
+            // Initialize the slider
+            images.forEach((img, index) => {
+                img.style.display = index === 0 ? 'block' : 'none';
+            });
+        </script>
+    </body>
+</html>
