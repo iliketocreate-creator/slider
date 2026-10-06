@@ -65,10 +65,34 @@
                 images[currentIndex].style.display = 'block';
             }
 
-            // Initialize the slider
+           
             images.forEach((img, index) => {
                 img.style.display = index === 0 ? 'block' : 'none';
             });
         </script>
+        <section>
+ <img class="mySlides" src="https://tastierrecipes.com/wp-content/uploads/2024/10/cheese-pizza-jpg.webp" style="height:500px; width:400px;">
+  <img class="mySlides" src="https://img.freepik.com/free-photo/photorealistic-view-tree-nature-with-branches-trunk_23-2151478105.jpg" style="height:500px; width:400px;">
+  <img class="mySlides" src="https://th.bing.com/th/id/OIP.IkW4w4j2ipeyzszq2dQ_BQHaEc?w=265&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" style="height:500px; width:400px;">
+</section>
+
+<script>
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000);
+}
+</script>
+
     </body>
 </html>
